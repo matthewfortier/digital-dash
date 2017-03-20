@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <section id="speedo">
+      <div id="speedo-content">
+        <h1>0</h1>
+      </div>
+    </section>
+    <svg>
+      <circle class="outer" cx="200" cy="200" r="190"/>
+    </svg>
+  </body>
+  <script
+  src="https://code.jquery.com/jquery-3.2.0.min.js"
+  integrity="sha256-JAW99MJVpJBGcbzEuXk4Az05s/XyDdBomFqNlM3ic+I="
+  crossorigin="anonymous"></script>
+  <script type="text/javascript">
+    var rpmRotation = -45;
+    setInterval(function(){
+      if(parseInt($("#speedo-content h1").text()) >= 70) {
+        $("#speedo").addClass("red");
+        $("#speedo-content h1").addClass("red");
+      }
+      if(parseInt($("#speedo-content h1").text()) >= 120) {
+        $("#speedo-content h1").text(0);
+        $("#speedo").removeClass("red");
+        $("#speedo-content h1").removeClass("red");
+      }
+      $("#speedo-content h1").text(parseInt($("#speedo-content h1").text()) + 1);
+    }, 100);
+  </script>
+</html>
