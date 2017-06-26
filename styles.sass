@@ -36,7 +36,7 @@ body
       padding: 0
       margin: 0
       color: white
-      font-size: 50px
+      font-size: 75px
       text-shadow: 0 0 10px white
 
       &.red
@@ -47,7 +47,8 @@ body
         content: 'mph'
         font-size: .3em
         position: absolute
-        padding-top: 35px
+        padding-top: 50px
+        padding-left: 5px
 
 
   #rpm
@@ -69,4 +70,12 @@ svg
     fill: transparent
     stroke: #333
     stroke-width: 20
-    stroke-dasharray: 0
+    stroke-dasharray: 1200
+    stroke-dashoffset: 1180
+
+    transform-origin: center
+    transform: rotate(135deg)
+    transition: all .1s ease-in
+
+    &.red
+      stroke: red

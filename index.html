@@ -20,18 +20,29 @@
   integrity="sha256-JAW99MJVpJBGcbzEuXk4Az05s/XyDdBomFqNlM3ic+I="
   crossorigin="anonymous"></script>
   <script type="text/javascript">
-    var rpmRotation = -45;
+    var rpmRotation = 1200;
     setInterval(function(){
-      if(parseInt($("#speedo-content h1").text()) >= 70) {
-        $("#speedo").addClass("red");
-        $("#speedo-content h1").addClass("red");
-      }
       if(parseInt($("#speedo-content h1").text()) >= 120) {
         $("#speedo-content h1").text(0);
-        $("#speedo").removeClass("red");
-        $("#speedo-content h1").removeClass("red");
+
       }
       $("#speedo-content h1").text(parseInt($("#speedo-content h1").text()) + 1);
+    }, 100);
+
+    setInterval(function(){
+      if(rpmRotation <= 300) {
+        rpmRotation = 1200;
+        $("#speedo").removeClass("red");
+        $("#speedo-content h1").removeClass("red");
+        $(".outer").removeClass ("red");
+      }
+      if(rpmRotation <= 600) {
+        $("#speedo").addClass("red");
+        $("#speedo-content h1").addClass("red");
+        $(".outer").addClass("red");
+      }
+      $(".outer").css("stroke-dashoffset", rpmRotation);
+      rpmRotation -= 10;
     }, 100);
   </script>
 </html>
